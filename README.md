@@ -1,9 +1,6 @@
 # k8s-nginx-mysql-project
 Kubernetes project showcasing Nginx deployment with Ingress, NetworkPolicies for secure traffic control, and MySQL StatefulSet with persistent storage.
 
-
-# Kubernetes DevOps Project: Nginx, NetworkPolicy & MySQL StatefulSet
-
 ## 📌 Overview
 
 This project demonstrates real-world Kubernetes DevOps practices including application deployment, secure networking, and persistent storage management.
