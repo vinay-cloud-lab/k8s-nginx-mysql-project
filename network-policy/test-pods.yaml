@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: allowed-pod
+  namespace: pod-namespace
+  labels:
+    access: allowed
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command: ["sleep", "3600"]
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: denied-pod
+  namespace: pod-namespace
+  labels:
+    access: denied
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command: ["sleep", "3600"]

@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-policy
+  namespace: nginx-namespace  # <--- GUARD MUST BE HERE
+spec:
+  podSelector:
+    matchLabels:
+      app: web-server         # <--- PROTECT THE NGINX POD
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:            # <--- ONLY ALLOW PODS WITH THIS TAG
+        matchLabels:
+          run: allowed-pod
+      namespaceSelector:      # <--- LOOK IN THIS ROOM
+        matchLabels:
+          kubernetes.io/metadata.name: pod-namespace

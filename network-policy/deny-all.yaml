@@ -1,1 +1,12 @@
-
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-unlabeled
+  namespace: pod-namespace
+spec:
+  podSelector:
+    matchLabels:
+      run: denied-pod
+  policyTypes:
+  - Ingress
+  ingress: [] # This empty list means: "Allow nothing"
